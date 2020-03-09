@@ -1171,91 +1171,91 @@ namespace FiscalBr.SpedFiscal
             ///     Valor da base de cálculo do IPI
             /// </summary>
             [SpedCampos(22, "VL_BC_IPI", "N", 0, 2, false)]
-            public decimal VlBcIpi { get; set; }
+            public decimal? VlBcIpi { get; set; }
 
             /// <summary>
             ///     Alíquota do IPI
             /// </summary>
             [SpedCampos(23, "ALIQ_IPI", "N", 6, 2, false)]
-            public decimal AliqIpi { get; set; }
+            public decimal? AliqIpi { get; set; }
 
             /// <summary>
             ///     Valor do IPI creditado/debitado
             /// </summary>
             [SpedCampos(24, "VL_IPI", "N", 0, 2, false)]
-            public decimal VlIpi { get; set; }
+            public decimal? VlIpi { get; set; }
 
             /// <summary>
             ///     Código da situação tributária referente ao PIS
             /// </summary>
             [SpedCampos(25, "CST_PIS", "N", 2, 0, false)]
-            public int CstPis { get; set; }
+            public int? CstPis { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo do PIS
             /// </summary>
             [SpedCampos(26, "VL_BC_PIS", "N", 0, 2, false)]
-            public decimal VlBcPis { get; set; }
+            public decimal? VlBcPis { get; set; }
 
             /// <summary>
             ///     Alíquota do PIS (em percentual)
             /// </summary>
             [SpedCampos(27, "ALIQ_PIS", "N", 8, 4, false)]
-            public decimal AliqPis { get; set; }
+            public decimal? AliqPis { get; set; }
 
             /// <summary>
             ///     Quantidade - Base de cálculo PIS
             /// </summary>
             [SpedCampos(28, "QUANT_BC_PIS", "N", 0, 3, false)]
-            public decimal QuantBcPis { get; set; }
+            public decimal? QuantBcPis { get; set; }
 
             /// <summary>
             ///     Alíquota do PIS (em reais)
             /// </summary>
             [SpedCampos(29, "ALIQ_PIS", "N", 0, 4, false)]
-            public decimal AliqPisReais { get; set; }
+            public decimal? AliqPisReais { get; set; }
 
             /// <summary>
             ///     Valor do PIS
             /// </summary>
             [SpedCampos(30, "VL_PIS", "N", 0, 2, false)]
-            public decimal VlPis { get; set; }
+            public decimal? VlPis { get; set; }
 
             /// <summary>
             ///     Código da situação tributária referente ao COFINS
             /// </summary>
             [SpedCampos(31, "CST_COFINS", "N", 2, 0, false)]
-            public int CstCofins { get; set; }
+            public int? CstCofins { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo da COFINS
             /// </summary>
             [SpedCampos(32, "VL_BC_COFINS", "N", 0, 2, false)]
-            public decimal VlBcCofins { get; set; }
+            public decimal? VlBcCofins { get; set; }
 
             /// <summary>
             ///     Alíquota do COFINS (em percentual)
             /// </summary>
             [SpedCampos(33, "ALIQ_COFINS", "N", 8, 4, false)]
-            public decimal AliqCofins { get; set; }
+            public decimal? AliqCofins { get; set; }
 
             /// <summary>
             ///     Quantidade - Base de cálculo COFINS
             /// </summary>
             [SpedCampos(34, "QUANT_BC_COFINS", "N", 0, 3, false)]
-            public decimal QuantBcCofins { get; set; }
+            public decimal? QuantBcCofins { get; set; }
 
             /// <summary>
             ///     Alíquota da COFINS (em reais)
             /// </summary>
             [SpedCampos(35, "ALIQ_COFINS", "N", 0, 4, false)]
-            public decimal AliqCofinsReais { get; set; }
+            public decimal? AliqCofinsReais { get; set; }
 
             /// <summary>
             ///     Valor da COFINS
             /// </summary>
             [SpedCampos(36, "VL_COFINS", "N", 0, 2, false)]
-            public decimal VlCofins { get; set; }
+            public decimal? VlCofins { get; set; }
 
             /// <summary>
             ///     Código da conta analítica contábil debitada/creditada
@@ -1651,6 +1651,104 @@ namespace FiscalBr.SpedFiscal
             /// </summary>
             [SpedCampos(6, "ICMS_RET", "N", 0, 2, false)]
             public decimal IcmsRet { get; set; }
+        }
+
+        public class RegistroC180 : RegistroBaseSped
+        {
+            public RegistroC180()
+            {
+                Reg = "C180";
+            }
+
+            [SpedCampos(2, "COD_RESP_RET", "N", 1, 0, true)]
+            public int CodRespRet { get; set; }
+
+            [SpedCampos(3, "QUANT_CONV", "N", 9, 6, true)]
+            public decimal QuantConv { get; set; }
+
+            [SpedCampos(4, "UNID", "C", 100, 0, true)]
+            public string Unid { get; set; }
+
+            [SpedCampos(5, "VL_UNIT_CONV", "N", 9, 6, true)]
+            public decimal VlUnitConv { get; set; }
+
+            [SpedCampos(6, "VL_UNIT_ICMS_OP_CONV", "N", 9, 6, true)]
+            public decimal VlUnitIcmsOpConv { get; set; }
+
+            [SpedCampos(7, "VL_UNIT_BC_ICMS_ST_CONV", "N", 9, 6, true)]
+            public decimal VlUnitBcIcmsStConv { get; set; }
+
+            [SpedCampos(8, "VL_UNIT_ICMS_ST_CONV", "N", 9, 6, true)]
+            public decimal VlUnitIcmsStConv { get; set; }
+
+            [SpedCampos(9, "VL_UNIT_FCP_ST_CONV", "N", 9, 6, false)]
+            public decimal VlUnitFcpStConv { get; set; }
+
+            [SpedCampos(10, "COD_DA", "C", 100, 0, false)]
+            public int CodDa { get; set; }
+
+            [SpedCampos(11, "NUM_DA", "C", 100, 0, false)]
+            public string NumDa { get; set; }
+        }
+
+        public class RegistroC185 : RegistroBaseSped
+        {
+            public RegistroC185()
+            {
+                Reg = "C185";
+            }
+
+            [SpedCampos(2, "NUM_ITEM", "N", 3, 0, true)]
+            public int NumItem { get; set; }
+
+            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true)]
+            public string CodItem { get; set; }
+
+            [SpedCampos(4, "CST_ICMS", "N", 3, 0, true)]
+            public int CstIcms { get; set; }
+
+            [SpedCampos(5, "CFOP", "C", 4, 0, true)]
+            public string Cfop { get; set; }
+
+            [SpedCampos(6, "COD_MOT_REST_COMPL", "C", 5, 0, true)]
+            public string CodMotRestCompl { get; set; }
+
+            [SpedCampos(7, "QUANT_CONV", "N", 9, 6, true)]
+            public decimal QuantConv { get; set; }
+
+            [SpedCampos(8, "UNID", "C", 100, 0, true)]
+            public string Unid { get; set; }
+
+            [SpedCampos(9, "VL_UNIT_CONV", "N", 9, 6, true)]
+            public decimal VlUnitConv { get; set; }
+
+            [SpedCampos(10, "VL_UNIT_ICMS_NA_OPERACAO_CONV", "N", 9, 6, false)]
+            public decimal VlUnitIcmsNaOperacaoConv { get; set; }
+
+            [SpedCampos(11, "VL_UNIT_ICMS_OP_CONV", "N", 9, 6, false)]
+            public decimal VlUnitIcmsOpConv { get; set; }
+
+            [SpedCampos(12, "VL_UNIT_BC_ICMS_ST_ESTOQUE_CONV", "N", 9, 6, false)]
+            public decimal VlUnitBcIcmsStEstoqueConv { get; set; }
+
+            [SpedCampos(13, "VL_UNIT_ICMS_ST_ESTOQUE_CONV", "N", 9, 6, false)]
+            public decimal VlUnitIcmsStEstoqueConv { get; set; }
+
+            [SpedCampos(14, "VL_UNIT_FCP_ICMS_ST_ESTOQUE_CONV", "N", 9, 6, false)]
+            public decimal VlUnitFcpIcmsStEstoqueConv { get; set; }
+
+            [SpedCampos(15, "VL_UNIT_ICMS_ST_CONV_REST", "N", 9, 6, false)]
+            public decimal VlUnitIcmsStConvRest { get; set; }
+
+            [SpedCampos(16, "VL_UNIT_FCP_ST_CONV_REST", "N", 9, 6, false)]
+            public decimal VlUnitFcpStConvRest { get; set; }
+
+            [SpedCampos(17, "VL_UNIT_ICMS_ST_CONV_COMPL", "N", 9, 6, false)]
+            public decimal VlUnitIcmsStConvCompl { get; set; }
+
+            [SpedCampos(18, "VL_UNIT_FCP_ST_CONV_COMPL", "N", 9, 6, false)]
+            public decimal VlUnitFcpStConvCompl { get; set; }
+
         }
 
         /// <summary>
@@ -3020,7 +3118,7 @@ namespace FiscalBr.SpedFiscal
             ///     <para />
             ///     3 - Trifásico
             /// </remarks>
-            [SpedCampos(26, "TP_LIGACAO", "N", 1, 0, false)]
+            [SpedCampos(26, "TP_LIGACAO", "C", 1, 0, false)]
             public int? TpLigacao { get; set; }
 
             /// <summary>
@@ -3049,6 +3147,52 @@ namespace FiscalBr.SpedFiscal
             /// </remarks>
             [SpedCampos(27, "COD_GRUPO_TENSAO", "C", 2, 0, false)]
             public int? CodGrupoTensao { get; set; }
+
+            /// <summary>
+            ///     Chave da Nota Fiscal de Energia Elétrica Eletrônica
+            /// </summary>
+            [SpedCampos(28, "CHV_DOCe", "C", 44, 0, false)]
+            public string ChvDoce { get; set; }
+
+            /// <summary>
+            ///     Finalidade da emissão do documento eletrônico
+            /// </summary>
+            /// <remarks>
+            ///     1 – Normal
+            ///     2 – Substituição
+            ///     3 – Normal com ajuste
+            /// </remarks>
+            [SpedCampos(29, "FIN_DOCe", "C", 1, 0, false)]
+            public string FinDoce { get; set; }
+
+            /// <summary>
+            ///     Chave da nota referenciada, substituída.
+            /// </summary>
+            [SpedCampos(30, "CHV_DOCe_REF ", "C", 44, 0, false)]
+            public string ChvDoceRef { get; set; }
+
+            /// <summary>
+            ///     Indicador do Destinatário/Acessante
+            /// </summary>
+            /// <remarks>
+            ///     1 – Contribuinte do ICMS;
+            ///     2 – Contribuinte Isento de Inscrição no Cadastro de Contribuintes do ICMS;
+            ///     9 – Não Contribuinte
+            /// </remarks>
+            [SpedCampos(31, "IND_DEST", "C", 1, 0, false)]
+            public string IndDest { get; set; }
+
+            /// <summary>
+            ///     Código do município do destinatário conforme a tabela do IBGE.
+            /// </summary>
+            [SpedCampos(32, "COD_MUN_DEST", "C", 7, 0, false)]
+            public string CodMunDest { get; set; }
+
+            /// <summary>
+            ///     Código da conta analíica contábil debitada/creditada
+            /// </summary>
+            [SpedCampos(33, "COD_CTA", "C", 99, 0, false)]
+            public string CodCta { get; set; }
 
             public List<RegistroC510> RegC510s { get; set; }
             public List<RegistroC590> RegC590s { get; set; }
@@ -3279,6 +3423,63 @@ namespace FiscalBr.SpedFiscal
             /// </summary>
             [SpedCampos(11, "COD_OBS", "C", 6, 0, false)]
             public string CodObs { get; set; }
+        }
+
+        public class RegistroC591 : RegistroBaseSped
+        {
+            public RegistroC591()
+            {
+                Reg = "C591";
+            }
+
+            [SpedCampos(2, "VL_FCP_OP", "N", 12, 2, false)]
+            public decimal VlFcpOp { get; set; }
+
+            [SpedCampos(3, "VL_FCP_ST", "N", 12, 2, false)]
+            public decimal VlFcpSt { get; set; }
+        }
+
+        public class RegistroC595 : RegistroBaseSped
+        {
+            public RegistroC595()
+            {
+                Reg = "C595";
+            }
+
+            [SpedCampos(2, "COD_OBS", "C", 6, 0, true)]
+            public string CodObs { get; set; }
+
+            [SpedCampos(3, "TXT_COMPL", "C", 100, 0, false)]
+            public string TxtCompl { get; set; }
+        }
+
+        public class RegistroC597 : RegistroBaseSped
+        {
+            public RegistroC597()
+            {
+                Reg = "C597";
+            }
+
+            [SpedCampos(2, "COD_AJ", "C", 10, 0, true)]
+            public string CodAj { get; set; }
+
+            [SpedCampos(3, "DESCR_COMPL_AJ", "C", 100, 0, false)]
+            public string DescrComplAj { get; set; }
+
+            [SpedCampos(4, "COD_ITEM", "C", 60, 0, false)]
+            public string CodItem { get; set; }
+
+            [SpedCampos(5, "VL_BC_ICMS", "N", 12, 2, false)]
+            public decimal VlBcIcms { get; set; }
+
+            [SpedCampos(6, "ALIQ_ICMS", "N", 6, 2, false)]
+            public decimal AliqIcms { get; set; }
+
+            [SpedCampos(7, "VL_ICMS", "N", 12, 2, false)]
+            public decimal VlIcms { get; set; }
+
+            [SpedCampos(8, "VL_OUTROS", "N", 12, 2, false)]
+            public decimal VlOutros { get; set; }
         }
 
         /// <summary>
